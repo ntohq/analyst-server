@@ -24,7 +24,7 @@ class StockApi():
         self.data_selectors = list(self.unclean_data.columns)
         #create list of the index values which the  values are equal to the time stamps of our data
         self.time_stamps = list(self.unclean_data.index)
-        print(self.time_stamps)
+        print(dir(self.time_stamps[0]))
         #get the length
         self.time_stamp_total_length = len(self.time_stamps)
         #now let us clean the data
