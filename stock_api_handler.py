@@ -22,6 +22,7 @@ class StockApi():
         self.unclean_data = stock.history(period=p,interval=i)
         #unclean_data selectors stored in an array
         self.data_selectors = list(self.unclean_data.columns)
+        print(self.data_selectors)
         #create list of the index values which the  values are equal to the time stamps of our data
         self.time_stamps = list(self.unclean_data.index)
         #get the length
@@ -41,8 +42,7 @@ class StockApi():
             }
         for count in range(self.time_stamp_total_length):
             #get the next timestamp and store it as a string
-            # str()
-            self.new_time_stamp = self.time_stamps[count]
+            self.new_time_stamp = str(self.time_stamps[count])
             #insert new data here
             if(not math.isnan((self.unclean_data.iloc[count].to_list())[0])):
                 self.new_data.update({self.new_time_stamp:self.unclean_data.iloc[count].to_list()})
